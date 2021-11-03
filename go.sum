@@ -2,3 +2,5 @@ github.com/patrickbyan/sysacademy_module_project v1.1.1 h1:T0J9ziXP0Hj1BVz6b43GJ
 github.com/patrickbyan/sysacademy_module_project v1.1.1/go.mod h1:gNmok9wR1qi1ycZCEZrka8lP0RwOmzJ25aieqqNORBI=
 github.com/patrickbyan/sysacademy_module_project/v2 v2.1.0 h1:0shOukzPqwY1gN0LjdQaVtzDqVKkAisyBQMCZ1dlIH8=
 github.com/patrickbyan/sysacademy_module_project/v2 v2.1.0/go.mod h1:qJpFhT7JXYX3iE+GrM8IkZaMhMwnwNoBgnroOnCwdL4=
+github.com/patrickbyan/sysacademy_module_project/v2 v2.2.0 h1:0PoY3k7wiXRZ8oNeMsNrS0puhtacC5+9bk67lBKcLsc=
+github.com/patrickbyan/sysacademy_module_project/v2 v2.2.0/go.mod h1:qJpFhT7JXYX3iE+GrM8IkZaMhMwnwNoBgnroOnCwdL4=

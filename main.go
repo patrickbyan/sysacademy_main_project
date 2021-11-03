@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	buyerName = "Belinda"
+	buyerName = "Patrick"
 	bornDate  = 1635875790371
 )
 
@@ -16,24 +16,25 @@ func main() {
 	defer fmt.Println("=====================\nEnd Transaction")
 
 	activeStatus, discrepancy, unit := module.GetDataBuyer(buyerName, bornDate)
+	newBuyer := module.DataBuyer{
+		Name:         buyerName,
+		ActiveStatus: activeStatus,
+		Discrepancy:  int64(discrepancy),
+		UnitId:       unit,
+	}
 
 	if activeStatus {
-		newBuyer := module.DataBuyer{
-			Name:         buyerName,
-			ActiveStatus: activeStatus,
-			Discrepancy:  int64(discrepancy),
-			UnitId:       unit,
-		}
-
 		err, errMessage := newBuyer.UnitEligibilityCheck()
 
 		if err {
-			fmt.Printf("error: %v, message: %s \n", err, errMessage)
+			module.HandleError(err, 4, errMessage, newBuyer.UnitId, 0)
+			// fmt.Printf("error: %v, message: %s \n", err, errMessage)
 		} else {
 			unitNames, totalPrice, metaData := newBuyer.PurchaseUnits()
-			fmt.Printf("error: false, message: purchase %v units (total: %v data) with a price of %v success \n", unitNames, metaData, totalPrice)
+			module.HandleError(false, 2, "Purchase success", newBuyer.UnitId, int8(metaData))
+			fmt.Printf("purchase %v units (total: %v data) with a price of %v success \n", unitNames, metaData, totalPrice)
 		}
 	} else {
-		fmt.Println("error: true, message: You are born literally today")
+		module.HandleError(true, 4, "Status Inactive", newBuyer.UnitId, 0)
 	}
 }
